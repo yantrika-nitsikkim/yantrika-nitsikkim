@@ -3,14 +3,21 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark; /* Sets the color scheme to dark */
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #444444; /* MODIFIED: Set background to black */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #444444; /* MODIFIED: Ensures body background is also black */
 }
 
 a {
@@ -20,12 +27,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -50,17 +51,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
