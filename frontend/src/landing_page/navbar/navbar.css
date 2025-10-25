@@ -1,11 +1,12 @@
 /* Custom Navbar Styles */
 .navbar-custom {
   background-color: #0E0E0E;
-  height: 150px;
+  height: 110px;
   position: sticky;
   top: 0;
   z-index: 1000;
   font-family: 'Inter', sans-serif;
+  border-bottom: 1px solid #2a2a2a; /* ADDED: Subtle border for separation */
 }
 
 .navbar-container {
@@ -13,9 +14,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 40px; /* Increased padding for better spacing */
   position: relative;
   width: 100%;
+  max-width: 1400px; /* Optional: adds a max width for very large screens */
+  margin: 0 auto;
 }
 
 .navbar-brand-section {
@@ -38,53 +41,43 @@
 }
 
 .navbar-logo {
-  width: 130px;
-  height: 100px;
+  width: 110px;
+  height: 80px;
   object-fit: contain;
-  margin-right: 16px;
+  margin-right: 20px;
 }
 
 .navbar-vertical-divider {
   width: 1px;
-  height: 80px;
+  height: 60px; /* Adjusted height */
   background-color: white;
-  margin-right: 16px;
-  opacity: 0.3;
+  margin-right: 20px;
+  opacity: 0.2;
 }
 
 .navbar-department-text {
   color: white;
-  line-height: 1.2;
+  line-height: 1.3;
   font-family: 'Roboto', sans-serif;
 }
 
-.navbar-department-title {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 2px;
-  line-height: 1.2;
-}
-
+.navbar-department-title,
 .navbar-department-subtitle {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  line-height: 1.2;
+  font-size: 20px; /* Slightly smaller for a cleaner look */
+  font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .navbar-department-institute {
-  font-size: 16px;
-  font-weight: 400;
-  opacity: 0.9;
-  line-height: 1.2;
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.8;
 }
 
 .navbar-navigation-capsules {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-shrink: 0;
-  margin-left: auto;
 }
 
 .navbar-nav-custom {
@@ -92,54 +85,44 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 16px;
+  gap: 24px; /* Increased gap for more space */
 }
 
+/* --- MODIFIED: Redesigned Nav Links --- */
 .navbar-nav-custom .nav-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 8px 12px;
-  border-radius: 25px;
-  background-color: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 34px;
-  white-space: nowrap;
-  min-width: fit-content;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 4px; /* Adjusted padding */
+  position: relative; /* Needed for the ::after pseudo-element */
+  background-color: transparent; /* Removed capsule background */
+  border: none; /* Removed capsule border */
+  transition: color 0.3s ease;
 }
 
 .navbar-nav-custom .nav-link:hover {
-  background-color: #1a1a1a;
-  transform: translateY(-2px);
-  color: white;
+  color: #ffffff; /* Text becomes brighter on hover */
 }
 
-/* Individual link styles for proper fitting */
-.nav-link-about {
-  min-width: 80px;
+/* --- ADDED: Animated underline effect --- */
+.navbar-nav-custom .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
-.nav-link-learning {
-  min-width: 140px;
-  font-size: 13px;
-}
-
-.nav-link-events {
-  min-width: 70px;
-}
-
-.nav-link-resources {
-  min-width: 90px;
-}
-
-.nav-link-quick {
-  min-width: 100px;
+.navbar-nav-custom .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .navbar-toggler-custom {
@@ -167,104 +150,81 @@
   display: none;
 }
 
-/* Mobile Styles */
+/* --- MODIFIED: Improved Mobile Styles --- */
 @media (max-width: 991.98px) {
-  .mobile-menu-backdrop {
+  .mobile-menu-backdrop.show {
     display: block;
   }
   .navbar-custom {
-    height: auto;
+    height: 90px;
+    padding: 10px 0;
+    border-bottom: 1px solid #2a2a2a;
   }
   
   .navbar-container {
-    padding: 8px 16px;
-    flex-direction: column;
-    align-items: stretch;
+    padding: 0 20px;
+    flex-direction: row; /* Keep it as a row for mobile header */
+    align-items: center;
   }
   
   .navbar-brand-section {
-    height: 70px;
-    margin-bottom: 12px;
-    padding-right: 60px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Hide text on smaller screens to save space */
+  .navbar-vertical-divider,
+  .navbar-department-text {
+    display: none;
+  }
+
+  .navbar-logo {
+    width: 90px;
+    height: 60px;
+    margin-right: 0;
   }
   
   .navbar-toggler-custom {
     display: block;
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 6px 10px;
   }
 
   .navbar-navigation-capsules {
-    position: absolute;
-    top: 70px;
-    right: 24px;
+    position: fixed; /* Changed to fixed for full screen overlay */
+    top: 90px; /* Position below the navbar */
+    right: 0;
+    width: 100%;
     background-color: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    padding: 12px 0;
-    min-width: 200px;
-    max-width: 250px;
+    padding: 20px 0;
     display: none;
-    z-index: 1001;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    flex-direction: column;
+    z-index: 999;
+    border-top: 1px solid #2a2a2a;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
   .navbar-navigation-capsules.show {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+    display: flex;
   }
   
   .navbar-nav-custom {
     flex-direction: column;
-    gap: 4px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    align-items: center; /* Center links in the dropdown */
+    gap: 10px;
   }
   
   .navbar-nav-custom .nav-link {
     width: 100%;
-    text-align: left;
-    padding: 10px 16px;
-    justify-content: flex-start;
-    font-size: 14px;
-    border-radius: 0;
-    background-color: transparent;
-    border: none;
-    margin: 0 8px;
-    border-radius: 4px;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 18px;
   }
   
   .navbar-nav-custom .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: none;
+    background-color: rgba(255, 255, 255, 0.05);
   }
-  
-  .navbar-logo {
-    width: 80px;
-    height: 60px;
-  }
-  
-  .navbar-vertical-divider {
-    height: 50px;
-  }
-  
-  .navbar-department-title {
-    font-size: 16px;
-  }
-  
-  .navbar-department-subtitle {
-    font-size: 16px;
-  }
-  
-  .navbar-department-institute {
-    font-size: 12px;
+
+  .navbar-nav-custom .nav-link::after {
+    display: none; /* Hide underline effect on mobile */
   }
 }
