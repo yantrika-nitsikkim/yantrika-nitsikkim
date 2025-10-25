@@ -1,6 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import './hero.css';
 
 function Hero() {
+	const navigate = useNavigate();
+
+	const handleJoinNowClick = () => {
+		navigate('/register');
+	};
+
 	return (
 		<section className="hero-section">
 			<div className="container">
@@ -14,7 +21,12 @@ function Hero() {
 						</p>
 						<div className="hero-actions">
 							<button className="hero-primary-btn btn">Learn More</button>
-							<button className="hero-ghost-btn btn">Join Now</button>
+							<button 
+								className="hero-ghost-btn btn"
+								onClick={handleJoinNowClick}
+							>
+								Join Now
+							</button>
 						</div>
 					</div>
 				</div>

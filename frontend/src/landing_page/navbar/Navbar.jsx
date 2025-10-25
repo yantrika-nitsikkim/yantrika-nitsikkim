@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css';
 import logo from '../../assets/logo.jpeg';
 
@@ -25,15 +26,17 @@ function Navbar() {
 			<div className="navbar-container">
 				{/* Brand Section */}
 				<div className="navbar-brand-section">
-					<div className="d-flex align-items-center">
-						<img src={logo} alt="Yantrika Logo" className="navbar-logo" />
-						<div className="navbar-vertical-divider"></div>
-						<div className="navbar-department-text">
-							<div className="navbar-department-title">Department of</div>
-							<div className="navbar-department-subtitle">Mechanical Engineering</div>
-							<div className="navbar-department-institute">National Institute of Technology Sikkim</div>
+					<Link to="/" className="navbar-brand-link">
+						<div className="d-flex align-items-center">
+							<img src={logo} alt="Yantrika Logo" className="navbar-logo" />
+							<div className="navbar-vertical-divider"></div>
+							<div className="navbar-department-text">
+								<div className="navbar-department-title">Department of</div>
+								<div className="navbar-department-subtitle">Mechanical Engineering</div>
+								<div className="navbar-department-institute">National Institute of Technology Sikkim</div>
+							</div>
 						</div>
-					</div>
+					</Link>
 				</div>
 
 				{/* Mobile Menu Toggle */}
