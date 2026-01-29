@@ -18,7 +18,7 @@ function Navbar() {
 		<nav className="navbar navbar-custom">
 			{/* Mobile Menu Backdrop */}
 			{isMenuOpen && (
-				<div 
+				<div
 					className="mobile-menu-backdrop"
 					onClick={closeMenu}
 				></div>
@@ -40,7 +40,7 @@ function Navbar() {
 				</div>
 
 				{/* Mobile Menu Toggle */}
-				<button 
+				<button
 					className="navbar-toggler-custom d-lg-none"
 					type="button"
 					onClick={toggleMenu}
@@ -53,20 +53,40 @@ function Navbar() {
 				<div className={`navbar-navigation-capsules ${isMenuOpen ? 'show' : ''}`}>
 					<ul className="navbar-nav-custom">
 						<li className="nav-item">
-							<a className="nav-link nav-link-about" href="#about">
+							<a className="nav-link nav-link-about" href="/about">
 								About Us
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link nav-link-learning" href="#learning">
+							<button
+								className="nav-link nav-link-learning nav-button-link"
+								onClick={() => {
+									document.getElementById("learning-section")?.scrollIntoView({
+										behavior: "smooth",
+										block: "start"
+									});
+									closeMenu();
+								}}
+							>
 								Learning & Development
-							</a>
+							</button>
 						</li>
+
 						<li className="nav-item">
-							<a className="nav-link nav-link-events" href="#events">
+							<button
+								className="nav-link nav-link-events nav-button-link"
+								onClick={() => {
+									document.getElementById("events-section")?.scrollIntoView({
+										behavior: "smooth",
+										block: "start"
+									});
+									closeMenu();
+								}}
+							>
 								Events
-							</a>
+							</button>
 						</li>
+
 						<li className="nav-item">
 							<a className="nav-link nav-link-resources" href="#resources">
 								Resources

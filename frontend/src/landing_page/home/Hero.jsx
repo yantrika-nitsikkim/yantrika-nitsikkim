@@ -1,77 +1,61 @@
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom';
-=======
-import { useState, useEffect } from 'react';
->>>>>>> cf1415f8edb0f214a408aa132497d181a546fd61
-import './hero.css';
+import { useEffect, useState } from "react";
+import "./hero.css";
 
-// Import your images from the assets folder
-import slide1 from '../../assets/1.png';
-import slide2 from '../../assets/2.png';
-import slide3 from '../../assets/3.png';
-import slide4 from '../../assets/4.png';
+// your 10 images
+import IMG_1 from "../../assets/IMG_1.jpg";
+import IMG_2 from "../../assets/IMG_2.jpg";
+import IMG_3 from "../../assets/IMG_3.jpg";
+import IMG_4 from "../../assets/IMG_4.jpg";
+import IMG_5 from "../../assets/IMG_5.jpg";
+import IMG_6 from "../../assets/IMG_6.jpg";
+import IMG_7 from "../../assets/IMG_7.jpg";
+import IMG_8 from "../../assets/IMG_8.jpg";
+import IMG_9 from "../../assets/IMG_9.jpg";
+import IMG_10 from "../../assets/IMG_10.jpg";
 
-const slides = [slide1, slide2, slide3, slide4];
+const slides = [IMG_1, IMG_2, IMG_3, IMG_4, IMG_5, IMG_6, IMG_7, IMG_8, IMG_9, IMG_10];
 
-function Hero() {
-<<<<<<< HEAD
-	const navigate = useNavigate();
+export default function Hero({ scrollTargetId = "about-section" }) {
+  const [current, setCurrent] = useState(0);
 
-	const handleJoinNowClick = () => {
-		navigate('/register');
-	};
+  useEffect(() => {
+    const id = setInterval(() => setCurrent((i) => (i + 1) % slides.length), 5000);
+    return () => clearInterval(id);
+  }, []);
 
-	return (
-		<section className="hero-section">
-			<div className="container">
-				<div className="row justify-content-center">
-					<div className="col-12">
-						<h1 className="hero-title mb-3">Join Yantrika: Innovate, Collaborate, Excel</h1>
-						<p className="hero-subtitle mb-4">
-							Yantrika is the Mechanical Engineering Club at NIT Sikkim, dedicated to fostering
-							innovation and skill development among students. Join us to bridge the gap between
-							theory and practice, and prepare for a successful engineering career.
-						</p>
-						<div className="hero-actions">
-							<button className="hero-primary-btn btn">Learn More</button>
-							<button 
-								className="hero-ghost-btn btn"
-								onClick={handleJoinNowClick}
-							>
-								Join Now
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
-=======
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const handleKnowMore = () => {
+    // Try to scroll to the section with the given id
+    const el = document.getElementById(scrollTargetId) || document.querySelector("[data-hero-next]");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      // Fallback: scroll down by one viewport height
+      window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+    }
+  };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-        }, 4000); // Change image every 4 seconds
+  return (
+    <section className="hero">
+      <div className="hero-slides" aria-hidden="true">
+        {slides.map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            className={`hero-slide ${i === current ? "is-active" : ""}`}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+      </div>
 
-        return () => clearInterval(interval); // Cleanup interval on component unmount
-    }, []);
+      <div className="hero-overlay" />
 
-    return (
-        <section className="hero-section">
-            <div className="slider-background">
-                {slides.map((slide, index) => (
-                    <img
-                        key={index}
-                        src={slide}
-                        alt={`Slide ${index + 1}`}
-                        className={`slide-image ${index === currentIndex ? 'active' : ''}`}
-                    />
-                ))}
-            </div>
-        </section>
-    );
->>>>>>> cf1415f8edb0f214a408aa132497d181a546fd61
+      <div className="hero-content">
+        <h1 className="hero-title">Department of Mechanical Engineering</h1>
+        <button type="button" className="hero-btn" onClick={handleKnowMore}>
+          Know More
+        </button>
+      </div>
+    </section>
+  );
 }
-
-export default Hero;

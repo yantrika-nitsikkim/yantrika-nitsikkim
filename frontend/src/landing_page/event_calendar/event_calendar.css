@@ -1,0 +1,129 @@
+.events-section {
+  padding: 32px 16px 40px;
+  background: rgba(0, 0, 0, 0.759);
+}
+
+.events-title {
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  color:#fff;
+  font-weight: 500;
+  margin: 0 0 14px 0;
+  text-align: left; /* left aligned heading */
+}
+
+/* Wrapper drives card width so exactly 3 are visible */
+.carousel-wrapper {
+  --cardW: 320px; /* will be overridden by JS for exact fit */
+  --gap: 16px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 8px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--gap);
+  will-change: transform;
+}
+
+/* Card size: exactly 3 per viewport (width set from wrapper --cardW) */
+.event-card {
+  position: relative;
+  flex: 0 0 var(--cardW);
+  max-width: var(--cardW);
+  width: var(--cardW);
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+}
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+}
+
+/* Date badge */
+.date-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #d82727;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+/* Image banner */
+.event-media {
+  height: 200px;
+  margin: 0;
+  background: #eee;
+}
+.event-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.event-body {
+  padding: 12px 14px 16px;
+}
+.event-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #111;
+}
+/* Clamp description so it never overflows the card */
+.event-desc {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  --cardW: 320px; /* JS overwrites this */
+  --gap: 16px;    /* JS overwrites this */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 8px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--gap);
+  will-change: transform;
+}
+
+.event-card {
+  flex: 0 0 var(--cardW);
+  width: var(--cardW);
+  max-width: var(--cardW);
+}
+
+
+/* Optional: on very small screens, show 1 or 2 cards; remove if you always want 3 */
+@media (max-width: 900px) { .carousel-wrapper{ --gap:12px; } }
+@media (max-width: 720px) {
+  .carousel-wrapper { --gap:12px; }
+  .event-media { height: 200px; }
+  .carousel-wrapper { --cardW: calc((100% - var(--gap)) / 2); }
+}
+@media (max-width: 520px) {
+  .carousel-wrapper { --cardW: 100%; }
+}

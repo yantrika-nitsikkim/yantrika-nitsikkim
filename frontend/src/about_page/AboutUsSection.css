@@ -1,110 +1,108 @@
-/* --- MODIFIED: Main Section Container --- */
-/* It's now a full-width container that establishes a layering context */
-.about-us-section {
-    position: relative; /* Crucial for positioning the video and overlay inside */
-    width: 100%;
-    min-height: 80vh;
-    color: white;
-    
-    /* These flex properties will now center the .about-us-content div */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    overflow: hidden; /* Hides any part of the video that might stick out */
+.about-us-section-pg {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Default full height */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  overflow: hidden;
+  font-family: "Times New Roman", Times, serif;
 }
 
-/* --- NEW: Dark Overlay --- */
-/* We use a pseudo-element for a clean overlay on top of the video */
-.about-us-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Adjust darkness here (0.6 = 60% black) */
-    z-index: -1; /* Sits between the video and the text */
+.about-us-content-pg {
+  flex: 1;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* --- MODIFIED: Content Container --- */
-/* This is now the centered content on the highest layer */
-.about-us-content {
-    position: relative; /* Ensures it respects the z-index */
-    z-index: 1;
-    
-    /* Center the text and button inside this container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    
-    max-width: 700px; /* Prevents text from being too wide */
-    padding: 20px;
+.about-us-title-pg {
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 1.1;
 }
 
-/* --- MODIFIED: Text Styles for Hero Layout --- */
-.about-us-title {
-    font-size: 4em;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.1;
+.about-us-description-pg {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 35px;
+  opacity: 0.9;
+  text-align: left;
 }
 
-.about-us-description {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    opacity: 0.9;
-    max-width: 600px;
-}
-
-/* --- MODIFIED: Button Style for Hero Layout --- */
-/* A "ghost button" style looks better on video backgrounds */
-.read-more-btn {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 14px 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.read-more-btn:hover {
-    background-color: white;
-    color: black;
-    transform: translateY(0); /* Reset transform from old style */
-}
-
-/* --- REMOVED --- */
-/* The .about-us-media-container class is no longer needed */
-
-/* --- NEW: Background Video Style --- */
-/* This replaces the old .about-us-video style */
+/* ✅ Background video styling */
 .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This makes the video cover the entire area */
-    z-index: -2; /* This places it at the very back */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
-/* --- MODIFIED: Responsive Adjustments --- */
-/* The layout is naturally responsive, so we only need to adjust font sizes */
-@media (max-width: 768px) {
-    .about-us-section {
-        min-height: 70vh;
-    }
-    .about-us-title {
-        font-size: 2.8em;
-    }
+/* ✅ Gradient overlay */
+.about-us-section-pg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 1;
+}
 
-    .about-us-description {
-        font-size: 1.1em;
-    }
+/* ✅ Text above overlay */
+.about-us-overlay {
+  position: relative;
+  z-index: 2;
+  padding-left: 5%;
+  max-width: 700px;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 1024px) {
+  .about-us-section-pg {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+    gap: 40px;
+  }
+
+  .about-us-content-pg {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .about-us-description-pg {
+    text-align: center;
+  }
+
+  .about-us-title-pg {
+    font-size: 2.8em;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-section-pg {
+    padding: 30px 20px;
+    min-height: 60vh; /* ✅ Reduced height for mobile view */
+  }
+
+  .about-us-title-pg {
+    font-size: 2.2em;
+  }
+
+  .about-us-description-pg {
+    font-size: 1em;
+  }
 }

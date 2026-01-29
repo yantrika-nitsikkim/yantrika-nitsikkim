@@ -1,14 +1,19 @@
-import React from 'react';
 import Hero from './Hero';
-// import Events from './Events'; // This component is empty, so we can comment it out for now.
-import AboutUs from './AboutUs';   // This line is the one that was causing the error.
+import AboutUs from "../about/AboutUs";
+import Join from '../join/join';
+import OurTeam from '../ourteam/ourTeam';
+import Learning from '../learning/learning';
+import Event from '../event_calendar/event_calendar'
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
       <AboutUs />
-      {/* <Events /> */}
+      <Learning />
+      <Event />
+      <OurTeam />
+      <Join />
     </div>
   );
 };

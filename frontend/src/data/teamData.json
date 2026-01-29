@@ -1,0 +1,43 @@
+{
+  "president": {
+    "name": "Dr. Dipayan Das",
+    "role": "President",
+    "img": "/images/president.jpg",
+    "description": "Providing visionary leadership and guidance for the Mechanical Engineering Society at NIT Sikkim."
+  },
+  "coreTeam": [
+    {
+      "name": "Sakshi Verma",
+      "role": "Secretary",
+      "img": "/images/sakshi.jpg",
+      "description": "Leading initiatives to foster innovation and collaboration among mechanical engineering students."
+    },
+    {
+      "name": "Ujwal Prasad",
+      "role": "Treasurer",
+      "img": "/images/ujwal.jpg",
+      "description": "Organizing hands-on workshops to enhance technical skills and knowledge sharing."
+    },
+    {
+      "name": "Abhishek Jaluthriya",
+      "role": "Convenor",
+      "img": "/images/abhishek.jpg",
+      "description": "Creating engaging events that connect students with industry professionals and alumni."
+    }
+  ],
+  "teamLeads": [
+    { "name": "Amit Sharma", "role": "WebDev Lead", "img": "/images/webdev.jpg" },
+    { "name": "Neha Singh", "role": "Event Management Lead", "img": "/images/event.jpg" },
+    { "name": "Ravi Verma", "role": "Content Lead", "img": "/images/content.jpg" },
+    { "name": "Priya Nair", "role": "Design Lead", "img": "/images/design.jpg" },
+    { "name": "Ankit Raj", "role": "Logistics Lead", "img": "/images/logistics.jpg" }
+  ],
+  "members": [
+    { "name": "Arjun Patel", "img": "/images/member1.jpg" },
+    { "name": "Ritika Das", "img": "/images/member2.jpg" },
+    { "name": "Rohit Kumar", "img": "/images/member3.jpg" },
+    { "name": "Sneha Sharma", "img": "/images/member4.jpg" },
+    { "name": "Aditya Raj", "img": "/images/member5.jpg" },
+    { "name": "Pooja Yadav", "img": "/images/member6.jpg" }
+  ]
+}

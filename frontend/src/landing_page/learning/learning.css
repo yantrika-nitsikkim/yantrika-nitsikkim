@@ -1,0 +1,124 @@
+/* Roboto + base */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap');
+:root {
+  --bg: rgba(0, 0, 0, 0.867);
+  --border: #d9d9d9;
+  --radius: 6px;
+  --gap: 18px;
+}
+.ld-page {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+.ld-wrap { max-width: 1100px; margin: 0 auto; padding: 28px 16px 56px; }
+.ld-header { text-align: center; margin: 18px 0 26px; }
+.ld-header h1 { font-size: clamp(26px, 4.6vw, 40px); font-weight: 500; margin: 0 0 20px; letter-spacing: -0.02em; }
+.ld-header p { margin: 0 0 100px; opacity: .85; font-size: clamp(13px, 1.8vw, 16px); }
+
+/* ================= TWO EQUAL COLUMNS ================= */
+.ld-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* requirement #1: two equal columns */
+  gap: var(--gap);
+  min-height: 76vh;                 /* gives the section a nice presence; adjust if needed */
+}
+
+/* LEFT COLUMN: rows = 60% (robotics) / 40% (ansys+gate) */
+.col-left {
+  display: grid;
+  grid-template-rows: 3fr 2fr;      /* 60% / 40% proportion */
+  gap: var(--gap);
+}
+
+/* Right column: rows = 40% (3d+web) / 60% (solidworks) */
+.col-right {
+  display: grid;
+  grid-template-rows: 2fr 3fr;      /* 40% / 60% proportion */
+  gap: var(--gap);
+}
+
+/* Bottom of left = two equal tiles */
+.left-bottom,
+.right-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* two equal columns in those zones */
+  gap: var(--gap);
+}
+
+/* ===== Tiles / Cards ===== */
+.card {
+  background: #fff;
+  color: #111;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;                      /* tile fills its grid area */
+}
+
+.card-top { display: flex; align-items: center; gap: 10px; }
+.icon { width: 45px; height: 45px; object-fit: contain; }
+.ansys_icon { height: 30px; object-fit: contain; }
+.card h3 { margin: 0; font-weight: 800; font-size: 20px; letter-spacing: .02em; }
+.card p  { margin-top: 15px; font-size: 14px; color: #222; opacity: .9; margin-bottom: 10px; }
+.btn { margin-top: auto; align-self: start; padding: 8px 14px; border: 1px solid #111; background: #fff; color: #111; border-radius: 2px; font-weight: 500;}
+/* Fix buttons inside the two "with-media" sections */
+.with-media .btn {
+  width: auto !important;       /* prevent full width */
+  justify-self: start !important; 
+  align-self: start !important;
+  display: inline-block !important;
+  margin-top: 12px;
+}
+
+/* Cards that include an image inside the same tile (Robotics & SolidWorks) */
+.with-media { padding-bottom: 0; display: grid; grid-template-rows: auto auto 1fr auto; }
+.with-media .tile-media {
+  margin: 12px -1px 0;                      /* stretch edge-to-edge inside border */
+  /* border-top: 1px solid var(--border); */
+  overflow: hidden;
+  /* border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius); */
+}
+.with-media .tile-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Give the image a nice presence; it will fill the remaining space set by grid */
+.with-media .tile-media { min-height: 38%; }
+
+/* Adjust image in Robotics tile ONLY */
+.robotics-tile .tile-media {
+    height: 95% !important;      /* <<< Adjust height of Robotics image */
+    /* min-height: 110px !important;
+    max-height: 160px !important; */
+    margin: 10px -10px 0;         /* stretch edge-to-edge inside border */
+    border-radius: 8px;
+}
+
+.robotics-tile .tile-media img {
+    object-fit: cover; 
+    transform-origin: center;
+}
+
+/* Optional hover just for Robotics */
+.robotics-tile:hover .tile-media img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+
+/* ========== Scroll reveal ========== */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .ld-grid-2 { grid-template-columns: 1fr; }
+  .col-left, .col-right { grid-template-rows: auto; }
+  .left-bottom, .right-top { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .ld-wrap { padding: 24px 12px 48px; }
+}
