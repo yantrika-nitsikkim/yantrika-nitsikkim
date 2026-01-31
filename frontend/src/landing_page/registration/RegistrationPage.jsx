@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RegistrationPage.css';
+const API_URL = import.meta.env.VITE_API_URL;
+console.log(import.meta.env.VITE_API_URL);
+
 
 function RegistrationPage() {
     const navigate = useNavigate();
@@ -66,7 +69,7 @@ function RegistrationPage() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/registrations', {
+            const response = await fetch(`${API_URL}/api/registrations`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
