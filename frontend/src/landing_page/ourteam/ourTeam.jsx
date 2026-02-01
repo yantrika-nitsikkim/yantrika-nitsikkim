@@ -1,4 +1,3 @@
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -23,7 +22,7 @@ export default function OurTeam() {
       <div className="text-center mb-16">
         <div className="max-w-sm mx-auto bg-zinc-900 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all">
           <img
-            src={president.img}
+            src={`${import.meta.env.BASE_URL}${president.img}`}
             alt={president.name}
             className="rounded-xl w-48 h-48 object-cover mx-auto mb-4 border border-gray-700"
           />
@@ -40,7 +39,7 @@ export default function OurTeam() {
             <div key={index} className="col-12 col-md-4">
               <div className="team-card bg-zinc-900 p-6 rounded-2xl h-full text-center">
                 <img
-                  src={member.img}
+                  src={`${import.meta.env.BASE_URL}${member.img}`}
                   alt={member.name}
                   className="rounded-xl w-40 h-40 object-cover mx-auto mb-4 border border-gray-700"
                 />
@@ -84,7 +83,7 @@ export default function OurTeam() {
           <SwiperSlide key={index}>
             <div className="team-card bg-zinc-900 p-6 rounded-2xl text-center mx-auto max-w-xs">
               <img
-                src={lead.img}
+                src={`${import.meta.env.BASE_URL}${lead.img}`}
                 alt={lead.name}
                 className="rounded-xl w-36 h-36 object-cover mx-auto mb-3 border border-gray-700"
               />
@@ -126,7 +125,7 @@ export default function OurTeam() {
           <SwiperSlide key={index}>
             <div className="team-card bg-zinc-900 p-4 rounded-2xl text-center mx-auto max-w-xs">
               <img
-                src={member.img}
+                src={`${import.meta.env.BASE_URL}${member.img}`}
                 alt={member.name}
                 className="rounded-xl w-32 h-32 object-cover mx-auto mb-3 border border-gray-700"
               />
