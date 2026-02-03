@@ -5,8 +5,6 @@ This repository hosts the source code for our club website.
 
 --- 
 
-## Deployed Link: [Yantrika-NITSikkim](https://yantrika-nitsikkim.github.io/)
-
 ## 📖 About Yantrika
 Yantrika is the official Mechanical Engineering Club of NIT Sikkim.  
 We aim to:
