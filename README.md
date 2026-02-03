@@ -15,6 +15,8 @@ We aim to:
 
 ---
 
+## Deployed Link: [Yantrika-NITSikkim](https://yantrika-nitsikkim.github.io/)
+
 ## 🛠️ Tech Stack
 - **HTML5, CSS3, JavaScript**  
 - **Tailwind CSS** for modern UI styling  
